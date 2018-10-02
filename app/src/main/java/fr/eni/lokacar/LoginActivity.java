@@ -3,6 +3,7 @@ package fr.eni.lokacar;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -20,6 +21,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,6 +31,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +43,14 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity {
 
+    private static String KEY_MDP = "mdp";
+    private static String KEY_AGENCE = "nomAgence";
+    private static String KEY_NOM_FICHIER = "fichierAgence";
 
     // UI references.
     private AutoCompleteTextView mAgencyView;
     private EditText mPasswordView;
+    private EditText mConfirmPasswordView;
     private View mProgressView;
     private View mLoginFormView;
     private Button mbtnLogin;
@@ -55,47 +62,81 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        mAgencyView = (AutoCompleteTextView) findViewById(R.id.agency);
-        populateAutoComplete();
+        mAgencyView =  findViewById(R.id.agency);
+        mbtnLogin = findViewById(R.id.btnLogin);
 
         mPasswordView = (EditText) findViewById(R.id.password);
-
-
-        mbtnLogin = (Button) findViewById(R.id.btnLogin);
+        mConfirmPasswordView = (EditText) findViewById(R.id.confirmpassword);
 
         mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
-    }
 
 
-    private void populateAutoComplete() {
-        //Lire le fichier intra activité pour retrouver le nom de l'agence
         SharedPreferences spIntra = this.getPreferences(MODE_PRIVATE);
-        mAgencyView.setText(spIntra.getString("nomAgenceIntra", "Nom de l agence"));
-
-        if (mAgencyView.getText().toString() == "Nom de l agence") {
+        SharedPreferences spInter = this.getSharedPreferences(KEY_NOM_FICHIER,MODE_PRIVATE);
+        if (spInter.contains(KEY_AGENCE)) {
+            Toast.makeText(this, "Agence trouvee", Toast.LENGTH_SHORT).show();
+            mAgencyView.setText(spIntra.getString(KEY_AGENCE, null));
+            findViewById(R.id.tilConfirm).setVisibility(View.INVISIBLE);
+            mbtnLogin.setText("Se Connecter");
+        }else {
+            creationAgence = true;
             mbtnLogin.setText("Creer Agence");
         }
 
-
-
     }
 
+
     private boolean isPasswordCorrect (String password){
+
         //Lire le fichier intra activité pour récuperer le mot de passe
         SharedPreferences spIntra = this.getPreferences(MODE_PRIVATE);
-        spIntra.getString("MdpIntra", "none");
+        String mdpintra =  spIntra.getString(KEY_MDP, null);
 
-        if (mAgencyView.getText().toString() == "Mot de passe") {
-            mbtnLogin.setText("Creer Agence");
+        Log.i("locakar: mdpstocké" , spIntra.getString(KEY_MDP, null));
+        Log.i("locakar: mdptenté" , password);
+        if (password.equals(mdpintra)) {
             return true;
         }
         return false;
     }
-    public void connecterCreerAgence (View view){
-        if (!creationAgence) {
 
+    public void connecterCreerAgence (View view){
+
+        Intent intent = new Intent(this, ListVehiculesActivity.class);
+        String mdp = mPasswordView.getText().toString();
+        if (!creationAgence && isPasswordCorrect(mdp)) {
+            Toast.makeText(this, "mdp ok", Toast.LENGTH_SHORT).show();
+
+            startActivity(intent);
+        }else if(!creationAgence && !isPasswordCorrect(mConfirmPasswordView.getText().toString())){
+            Toast.makeText(this, "mauvais mdp", Toast.LENGTH_SHORT).show();
         }
+
+        if(creationAgence){
+            Toast.makeText(this, "Creation agence", Toast.LENGTH_SHORT).show();
+            if (mPasswordView.getText().toString().equals(mConfirmPasswordView.getText().toString()))
+            {
+                //Enregistrer le mot de passe en  intra-activité
+                SharedPreferences sp = this.getPreferences(MODE_PRIVATE);
+                SharedPreferences.Editor editeur = sp.edit();
+                editeur.putString(KEY_MDP,mPasswordView.getText().toString());
+                editeur.commit();
+
+                //Enregistrer le nom de l'agence en inter-activité
+                SharedPreferences sp1 = this.getSharedPreferences(KEY_NOM_FICHIER,MODE_PRIVATE);
+                SharedPreferences.Editor editeur1 = sp1.edit();
+                editeur1.putString(KEY_AGENCE,mAgencyView.getText().toString());
+                editeur1.commit();
+
+
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(this, "Mots de passe differents", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
     }
 
 }
