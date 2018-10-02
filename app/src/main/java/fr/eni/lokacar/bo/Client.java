@@ -3,6 +3,7 @@ package fr.eni.lokacar.bo;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -13,7 +14,6 @@ public class Client implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     private int id_client;
-
     @ColumnInfo(name="NOM")
     private String nom;
     @ColumnInfo(name="PRENOM")
@@ -64,6 +64,7 @@ public class Client implements Parcelable {
         tel = in.readString();
         email = in.readString();
         numeroPermis = in.readString();
+        dateNaissance = new Date(in.readLong());
     }
 
     public static final Creator<Client> CREATOR = new Creator<Client>() {
@@ -190,5 +191,6 @@ public class Client implements Parcelable {
         parcel.writeString(tel);
         parcel.writeString(email);
         parcel.writeString(numeroPermis);
+        parcel.writeLong(dateNaissance.getTime());
     }
 }
