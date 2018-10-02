@@ -52,13 +52,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="fr.eni.lokacar.ResumeLocationActivity" />
         </activity>
+
         <activity android:name=".ResumeLocationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="fr.eni.lokacar.DetailVehiculeActivity" />
         </activity>
-
-
     </application>
 
 </manifest>

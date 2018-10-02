@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     private static String KEY_NOM_FICHIER = "fichierAgence";
 
     // UI references.
-    private AutoCompleteTextView mAgencyView;
+    private TextView mAgencyView;
     private EditText mPasswordView;
     private EditText mConfirmPasswordView;
     private View mProgressView;
@@ -61,12 +61,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         // Set up the login form.
         mAgencyView =  findViewById(R.id.agency);
         mbtnLogin = findViewById(R.id.btnLogin);
 
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mConfirmPasswordView = (EditText) findViewById(R.id.confirmpassword);
+        mPasswordView = findViewById(R.id.password);
+        mConfirmPasswordView = findViewById(R.id.confirmpassword);
 
         mLoginFormView = findViewById(R.id.login_form);
 
@@ -75,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences spInter = this.getSharedPreferences(KEY_NOM_FICHIER,MODE_PRIVATE);
         if (spInter.contains(KEY_AGENCE)) {
             Toast.makeText(this, "Agence trouvee", Toast.LENGTH_SHORT).show();
-            mAgencyView.setText(spIntra.getString(KEY_AGENCE, null));
+            mAgencyView.setText(spInter.getString(KEY_AGENCE, null));
             findViewById(R.id.tilConfirm).setVisibility(View.INVISIBLE);
             mbtnLogin.setText("Se Connecter");
         }else {
