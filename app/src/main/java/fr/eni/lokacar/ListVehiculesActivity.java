@@ -98,6 +98,15 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
             vehicule.setModele("Modele "+i);
             vehicule.setImmatriculation("Immatriculation "+i);
             vehicule.setTypeVehicule(TypeVehicule.BERLINE);
+
+            if (i%2==0)
+            {
+                vehicule.setLouee(false);
+            }else
+            {
+                vehicule.setLouee(true);
+            }
+
             vehicules.add(vehicule);
 
         }

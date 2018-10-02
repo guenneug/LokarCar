@@ -1,10 +1,13 @@
 package fr.eni.lokacar.adapters;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -41,9 +44,24 @@ public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull VehiculeAdapter.ViewHolder holder, int position) {
+
+        String colorOccupee = String.valueOf(R.color.colorOccupee);
+
         holder.tvTitre.setText(this.vehicules.get(position).getModele());
         holder.tvValeurImmatriculation.setText(this.vehicules.get(position).getImmatriculation());
         holder.tvValeurTypeVehicule.setText(this.vehicules.get(position).getTypeVehicule().toString());
+
+        if (this.vehicules.get(position).isLouee())
+        {
+            holder.relativeLayout.setBackgroundResource(R.color.colorOccupee);
+
+        } else
+        {
+
+            holder.relativeLayout.setBackgroundResource(R.color.colorLibre);
+        }
+
+
     }
 
     @Override
@@ -55,11 +73,17 @@ public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.ViewHo
         TextView tvTitre;
         TextView tvValeurImmatriculation;
         TextView tvValeurTypeVehicule;
+        LinearLayout row_linearlayout;
+        RelativeLayout relativeLayout;
+
+
         public ViewHolder(View itemView) {
             super(itemView);
             tvTitre = itemView.findViewById(R.id.tvTitre);
 
             ViewGroup vg = itemView.findViewById(R.id.layoutClesValeurs);
+            row_linearlayout=(LinearLayout)itemView.findViewById(R.id.layoutClesValeurs);
+            relativeLayout=(RelativeLayout)itemView.findViewById(R.id.layoutElementVehicule);
             this.tvValeurImmatriculation = ViewUtil.genererVueCleValeur(vg,"N° immatriculation");
             this.tvValeurTypeVehicule = ViewUtil.genererVueCleValeur(vg,"Type de véhicule");
 
