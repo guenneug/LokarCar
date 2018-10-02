@@ -33,5 +33,6 @@
     <string name="prompt_tel">Téléphone</string>
     <string name="prompt_permis">Numéro permis</string>
     <string name="prompt_date_naissance">Date naissance</string>
+    <string name="afficherVehiculesDispo">Afficher seulement les véhicules disponibles</string>
     <string name="LouerVéhicule">Louer Véhicule</string>
 </resources>

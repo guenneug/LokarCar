@@ -111,6 +111,29 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
 
         }
 
+        Vehicule voitureCHR = new Vehicule();
+        voitureCHR.setModele("206");
+        voitureCHR.setImmatriculation("Christophe");
+        voitureCHR.setTypeVehicule(TypeVehicule.COUPE);
+        voitureCHR.setLouee(true);
+
+        Vehicule voitureCLA = new Vehicule();
+        voitureCLA.setModele("Mustang");
+        voitureCLA.setImmatriculation("Claude");
+        voitureCLA.setTypeVehicule(TypeVehicule.CABRIOLET);
+        voitureCLA.setLouee(false);
+
+        Vehicule voitureLAU = new Vehicule();
+        voitureLAU.setModele("C3");
+        voitureLAU.setImmatriculation("Christophe");
+        voitureLAU.setTypeVehicule(TypeVehicule.COUPE);
+        voitureLAU.setLouee(false);
+
+        vehicules.add(voitureCHR);
+        vehicules.add(voitureCLA);
+        vehicules.add(voitureLAU);
+
+
         return vehicules;
 
     }
