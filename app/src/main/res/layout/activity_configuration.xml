@@ -32,12 +32,13 @@
             android:layout_weight="0.3">
 
         <EditText
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/recherche"
 
             android:hint="Numéro d'immatriculation"
-            android:id="@+id/resultatRecherche"/>
+            android:id="@+id/etRechercheImma"/>
 
         </android.support.design.widget.TextInputLayout>
 
