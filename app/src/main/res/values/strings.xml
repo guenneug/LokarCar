@@ -3,13 +3,13 @@
 
     <!-- Strings related to login -->
     <string name="prompt_email">Agence</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Validerr</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">Valider</string>
+    <string name="action_sign_in_short">Se connecter</string>
     <string name="error_invalid_agency">Nom Agence invalide</string>
-    <string name="error_invalid_password">Password incorrect</string>
-    <string name="error_incorrect_password">Password incorrect</string>
-    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_password">Mot de passe invalide</string>
+    <string name="error_incorrect_password">Mot de passe incorrect</string>
+    <string name="error_field_required">Ce champs est requis</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
