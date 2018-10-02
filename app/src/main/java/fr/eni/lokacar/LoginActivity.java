@@ -101,9 +101,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void connecterCreerAgence (View view){
+
+        Intent intent = new Intent(this, ListVehiculesActivity.class);
         String mdp = mPasswordView.getText().toString();
         if (!creationAgence && isPasswordCorrect(mdp)) {
             Toast.makeText(this, "mdp ok", Toast.LENGTH_SHORT).show();
+
+            startActivity(intent);
         }else if(!creationAgence && !isPasswordCorrect(mConfirmPasswordView.getText().toString())){
             Toast.makeText(this, "mauvais mdp", Toast.LENGTH_SHORT).show();
         }
@@ -123,14 +127,15 @@ public class LoginActivity extends AppCompatActivity {
                 SharedPreferences.Editor editeur1 = sp1.edit();
                 editeur1.putString(KEY_AGENCE,mAgencyView.getText().toString());
                 editeur1.commit();
+
+
+                startActivity(intent);
             }
             else{
                 Toast.makeText(this, "Mots de passe differents", Toast.LENGTH_SHORT).show();
             }
         }
 
-        Intent intent = new Intent(this, ListVehiculesActivity.class);
-        startActivity(intent);
 
     }
 
