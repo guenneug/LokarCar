@@ -2,7 +2,7 @@
     <string name="app_name">LokaCar</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Agence</string>
+    <string name="prompt_email">Email</string>
     <string name="prompt_password">Mot de passe</string>
     <string name="action_sign_in">Valider</string>
     <string name="action_sign_in_short">Se connecter</string>
@@ -15,4 +15,21 @@
     </string>
     <string name="ajouter">Ajouter un véhicule</string>
     <string name="configuration">Configuration</string>
+    <string name="title_activity_list_vehicule">ListVehiculeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="pick_time">dateNaissance</string>
+    <string name="selectDateNaissance">Date Naissance</string>
+    <string name="prompt_nom">Nom</string>
+    <string name="prompt_prenom">prenom</string>
+    <string name="prompt_adresse">Adresse</string>
+    <string name="prompt_code_postal">Code Postal</string>
+    <string name="prompt_ville">Ville</string>
+    <string name="prompt_tel">Téléphone</string>
+    <string name="prompt_permis">Numéro permis</string>
+    <string name="prompt_date_naissance">Date naissance</string>
 </resources>
