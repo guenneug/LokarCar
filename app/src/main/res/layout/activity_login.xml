@@ -71,7 +71,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Valider"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="connecterCreerAgence"/>
+
 
         </LinearLayout>
     </ScrollView>
