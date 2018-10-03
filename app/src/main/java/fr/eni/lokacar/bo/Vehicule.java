@@ -17,20 +17,21 @@ public class Vehicule implements Parcelable{
     private int nbrePlaces;
     private String marque;
     private String modele;
-    TypeVehicule typeVehicule;
+    private int typeVehicule_id;
+
+
 
     public Vehicule() {
     }
 
-    public Vehicule(int id_vehicule, float prix, String immatriculation, boolean louee, int nbrePlaces, String marque, String modele, TypeVehicule typeVehicule) {
-        this.id_vehicule = id_vehicule;
+    public Vehicule(float prix, String immatriculation, boolean louee, int nbrePlaces, String marque, String modele, int typeVehicule_id) {
         this.prix = prix;
         this.immatriculation = immatriculation;
         this.louee = louee;
         this.nbrePlaces = nbrePlaces;
         this.marque = marque;
         this.modele = modele;
-        this.typeVehicule = typeVehicule;
+        this.typeVehicule_id = typeVehicule_id;
     }
 
     protected Vehicule(Parcel in) {
@@ -41,6 +42,7 @@ public class Vehicule implements Parcelable{
         nbrePlaces = in.readInt();
         marque = in.readString();
         modele = in.readString();
+        typeVehicule_id = in.readInt();
     }
 
     public static final Creator<Vehicule> CREATOR = new Creator<Vehicule>() {
@@ -111,12 +113,26 @@ public class Vehicule implements Parcelable{
         this.modele = modele;
     }
 
-    public TypeVehicule getTypeVehicule() {
-        return typeVehicule;
+    public int getTypeVehicule_id() {
+        return typeVehicule_id;
     }
 
-    public void setTypeVehicule(TypeVehicule typeVehicule) {
-        this.typeVehicule = typeVehicule;
+    public void setTypeVehicule_id(int typeVehicule_id) {
+        this.typeVehicule_id = typeVehicule_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicule{" +
+                "id_vehicule=" + id_vehicule +
+                ", prix=" + prix +
+                ", immatriculation='" + immatriculation + '\'' +
+                ", louee=" + louee +
+                ", nbrePlaces=" + nbrePlaces +
+                ", marque='" + marque + '\'' +
+                ", modele='" + modele + '\'' +
+                ", typeVehicule_id=" + typeVehicule_id +
+                '}';
     }
 
     @Override

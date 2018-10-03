@@ -67,7 +67,7 @@ public class DetailsClientActivity extends AppCompatActivity implements DatePick
 
     public void submitForm(View view) {
 
-       ClientDAO clientDAO = new ClientDAO(this);
+        //ClientDAO clientDAO = new ClientDAO(this);
 
         Client client = new Client();
         client.setNom(nom.getText().toString());
@@ -84,8 +84,8 @@ public class DetailsClientActivity extends AppCompatActivity implements DatePick
             e.printStackTrace();
         }
 
-        long id = clientDAO.insert(client);
-        client.setId_client((int)id);
+        //long id = clientDAO.insert(client);
+        //client.setId_client((int)id);
 
         Intent intent = new Intent(this,ResumeLocationActivity.class);
         startActivity(intent);

@@ -97,7 +97,7 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
             Vehicule vehicule = new Vehicule();
             vehicule.setModele("Modele "+i);
             vehicule.setImmatriculation("Immatriculation "+i);
-            vehicule.setTypeVehicule(new TypeVehicule("Berline"));
+            vehicule.setTypeVehicule_id(1);
 
             if (i%2==0)
             {
@@ -114,19 +114,19 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
         Vehicule voitureCHR = new Vehicule();
         voitureCHR.setModele("206");
         voitureCHR.setImmatriculation("Christophe");
-        voitureCHR.setTypeVehicule(new TypeVehicule("Coupé"));
+        voitureCHR.setTypeVehicule_id(4);
         voitureCHR.setLouee(true);
 
         Vehicule voitureCLA = new Vehicule();
         voitureCLA.setModele("Mustang");
         voitureCLA.setImmatriculation("Claude");
-        voitureCLA.setTypeVehicule(new TypeVehicule("Cabriolet"));
+        voitureCLA.setTypeVehicule_id(3);
         voitureCLA.setLouee(false);
 
         Vehicule voitureLAU = new Vehicule();
         voitureLAU.setModele("C3");
         voitureLAU.setImmatriculation("Christophe");
-        voitureLAU.setTypeVehicule(new TypeVehicule("Coupé"));
+        voitureLAU.setTypeVehicule_id(4);
         voitureLAU.setLouee(false);
 
         vehicules.add(voitureCHR);

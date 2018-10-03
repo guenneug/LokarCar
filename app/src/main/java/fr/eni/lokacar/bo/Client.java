@@ -9,6 +9,8 @@ import android.os.Parcelable;
 
 import java.util.Date;
 
+import fr.eni.lokacar.dao.DateTypeConverter;
+
 @Entity
 public class Client implements Parcelable {
 
@@ -24,6 +26,7 @@ public class Client implements Parcelable {
     private String tel;
     private String email;
     private String numeroPermis;
+    @TypeConverters({DateTypeConverter.class})
     private Date dateNaissance;
 
 
