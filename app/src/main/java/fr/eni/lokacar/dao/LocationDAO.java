@@ -13,15 +13,5 @@ import fr.eni.lokacar.bo.Location;
 @Dao
  public interface LocationDAO extends GenericDAO<Location>{
 
-      @Insert
-    public long insert(Location entity);
 
-   @Insert
-    public long[] insert(List<Location> entities) ;
-
-   @Delete
-    public void delete(Location entity) ;
-
-   @Update
-    public void update(Location entity) ;
 }
