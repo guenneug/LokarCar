@@ -16,12 +16,12 @@
     tools:context=".DetailsClientActivity">
 
     <ScrollView
-        android:id="@+id/login_form"
+        android:id="@+id/client_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-        android:id="@+id/email_login_form"
+        android:id="@+id/details_client_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -205,6 +205,8 @@
                     android:layout_weight="0.5"
                     android:text="Ajouter"
                     android:onClick="submitForm"
+       android:textColor="@color/colorWhite"
+       android:background="@color/colorAjouter"
                     />
 
 

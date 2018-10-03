@@ -15,4 +15,7 @@ public class DetailVehiculeActivity extends AppCompatActivity {
     public void createLocation(View view) {
 
     }
+
+    public void returnLocation(View view) {
+    }
 }

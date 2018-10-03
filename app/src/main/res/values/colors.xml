@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#197596</color>
+    <color name="colorPrimaryDark">#197596</color>
+    <color name="colorAccent">#197596</color>
     <color name="colorWhite">#FFF</color>
-    <color name="colorLibre">#a8f0a3</color>
-    <color name="colorOccupee">#fbc4bf</color>
+    <color name="colorLibre">#41f46e</color>
+    <color name="colorOccupee">#f46741</color>
+    <color name="colorAjouter">#197596</color>
+    <color name="colorRestitution">#962318</color>
 </resources>
