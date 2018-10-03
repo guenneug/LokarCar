@@ -68,7 +68,7 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
 
         List<Vehicule> vehicules = Connexion.getConnexion(this).vehiculeDAO().selectAll();
 
-        Log.i(TAG,"DISPO "+config.isTriDispo());
+
 
         this.vehiculeAdapter = new VehiculeAdapter(this);
         this.vehiculeAdapter.addVehicules(vehicules);

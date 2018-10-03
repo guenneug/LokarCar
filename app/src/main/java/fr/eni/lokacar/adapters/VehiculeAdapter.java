@@ -60,12 +60,12 @@ public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.ViewHo
 
         if (this.vehicules.get(position).isLouee())
         {
-            holder.relativeLayout.setBackgroundResource(R.color.colorOccupee);
+            holder.tvTitre.setBackgroundResource(R.color.colorOccupee);
 
         } else
         {
 
-            holder.relativeLayout.setBackgroundResource(R.color.colorLibre);
+            holder.tvTitre.setBackgroundResource(R.color.colorLibre);
         }
 
 
