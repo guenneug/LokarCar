@@ -14,15 +14,5 @@ import fr.eni.lokacar.bo.Client;
 @Dao
 public interface ClientDAO extends GenericDAO<Client> {
 
-   @Insert
-   public long insert(Client entity) ;
 
-   @Insert
-   public long[] insert(List<Client> entities) ;
-
-   @Delete
-   public void delete(Client entity);
-
-   @Update
-   public void update(Client entity);
 }

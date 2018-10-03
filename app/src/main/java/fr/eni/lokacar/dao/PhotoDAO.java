@@ -12,15 +12,5 @@ import fr.eni.lokacar.bo.Photo;
 @Dao
 public interface PhotoDAO extends GenericDAO<Photo>{
 
-    @Insert
-    public long insert(Photo entity) ;
 
-    @Insert
-    public long[] insert(List<Photo> entities) ;
-
-    @Delete
-    public void delete(Photo entity) ;
-
-    @Update
-    public void update(Photo entity) ;
 }
