@@ -1,7 +1,9 @@
 package fr.eni.lokacar;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -51,6 +53,14 @@ public class ConfigurationActivity extends AppCompatActivity  {
     protected void onPause() {
         super.onPause();
 
+       int position = getPositionSelectionee();
+
+        Configuration config = new Configuration(this.switchDispo.isChecked(),this.etImmatriculation.getText().toString(), position);
+        new ConfigurationDAO().enregistrer(this,config);
+    }
+
+    public int getPositionSelectionee()
+    {
         String type = this.spin.getSelectedItem().toString();
 
         int position=0;
@@ -63,11 +73,8 @@ public class ConfigurationActivity extends AppCompatActivity  {
             {
                 position=i;
             }
-
         }
-
-        Configuration config = new Configuration(this.switchDispo.isChecked(),this.etImmatriculation.getText().toString(), position);
-        new ConfigurationDAO().enregistrer(this,config);
+        return position;
     }
 
     public String [] getTableauTypesVehicules()
@@ -87,6 +94,14 @@ public class ConfigurationActivity extends AppCompatActivity  {
 
 
     public void onClickRechercheImmatriculation(View view) {
+
+
+        String immatriculation = this.etImmatriculation.getText().toString();
+
+        Log.i("CHRISTOPHE",immatriculation);
+
+        Intent intent = new Intent(this,DetailVehiculeActivity.class);
+
     }
 
 

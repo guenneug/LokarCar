@@ -15,15 +15,6 @@ import fr.eni.lokacar.bo.Vehicule;
 @Dao
 public interface VehiculeDAO extends GenericDAO<Vehicule> {
 
-    @Insert
-    public long insert(Vehicule entity);
 
-    @Insert
-    public long[] insert(List<Vehicule> entities) ;
 
-    @Delete
-    public void delete(Vehicule entity) ;
-
-    @Update
-    public void update(Vehicule entity) ;
 }

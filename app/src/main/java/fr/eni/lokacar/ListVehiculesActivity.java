@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -13,12 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.lokacar.adapters.VehiculeAdapter;
+import fr.eni.lokacar.bo.Configuration;
 import fr.eni.lokacar.bo.TypeVehicule;
 import fr.eni.lokacar.bo.Vehicule;
+import fr.eni.lokacar.dao.ConfigurationDAO;
+import fr.eni.lokacar.dao.VehiculeBouchonDAO;
 
 public class ListVehiculesActivity extends AppCompatActivity implements VehiculeAdapter.ClickListenerVehicule {
 
 
+    private static final String TAG = "CHRISTOPHE";
     private Toolbar toolbar;
     private RecyclerView rvVehicules;
     private VehiculeAdapter vehiculeAdapter;
@@ -36,11 +41,26 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
         this.rvVehicules=this.findViewById(R.id.rv_Vehicules);
         this.rvVehicules.setHasFixedSize(true);
 
-        List<Vehicule> vehicules = mockVehicules();
+
+
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Configuration config = new ConfigurationDAO().lire(this);
+
+        List<Vehicule> vehicules = VehiculeBouchonDAO.selectAll(config.isTriDispo());
+
+        Log.i(TAG,"DISPO "+config.isTriDispo());
 
         this.vehiculeAdapter = new VehiculeAdapter(this);
         this.vehiculeAdapter.addVehicules(vehicules);
         this.rvVehicules.setAdapter(vehiculeAdapter);
+
 
 
     }
@@ -88,8 +108,10 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
      * Bouchon Test
      * @return
      */
-    public List<Vehicule> mockVehicules()
+    public List<Vehicule> mockVehicules(boolean IsDispo)
     {
+
+
         List<Vehicule> vehicules = new ArrayList<>();
 
         for (int i=1 ; i<=5 ; i++)
@@ -133,8 +155,29 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
         vehicules.add(voitureCLA);
         vehicules.add(voitureLAU);
 
+        List <Vehicule> vehiculesDispo = new ArrayList<>();
 
-        return vehicules;
+        for (Vehicule v : vehicules)
+        {
+            if (!v.isLouee())
+            {
+                vehiculesDispo.add(v);
+            }
+
+        }
+
+        if (IsDispo)
+        {
+            return vehiculesDispo;
+        }
+        else
+        {
+            return vehicules;
+        }
+
+
+
+
 
     }
 
