@@ -24,7 +24,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu_share"
+            android:src="@drawable/recherche"
             android:layout_weight="0.7"
             android:onClick="onClickRechercheClient"/>
         <Button

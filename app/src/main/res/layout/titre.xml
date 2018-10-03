@@ -8,6 +8,6 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorTitre"
         android:gravity="center"/>
 </RelativeLayout>
