@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -20,11 +19,10 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import fr.eni.lokacar.bo.Client;
-import fr.eni.lokacar.dao.ClientDAO;
 import fr.eni.lokacar.dao.Connexion;
 
 
-public class DetailsClientActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
+public class CreerClientActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
 
     private Calendar calendar;
@@ -44,7 +42,7 @@ public class DetailsClientActivity extends AppCompatActivity implements DatePick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details_client);
+        setContentView(R.layout.activity_creer_client);
 
 
         initComponent();

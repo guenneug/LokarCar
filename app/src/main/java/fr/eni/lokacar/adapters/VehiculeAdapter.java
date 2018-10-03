@@ -51,8 +51,6 @@ public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.ViewHo
         holder.tvTitre.setText(this.vehicules.get(position).getMarque()+ " "+this.vehicules.get(position).getModele());
         holder.tvValeurImmatriculation.setText(this.vehicules.get(position).getImmatriculation());
 
-
-
         String typeVehicule = TypeVehiculeDAO.getType(this.vehicules.get(position).getTypeVehicule_id());
 
 

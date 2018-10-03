@@ -5,38 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ResumeLocationActivity">
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="386dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        >
+        android:orientation="horizontal">
 
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/recherche"
-            android:layout_weight="0.3"
-            android:hint="Nom du client"
-            android:id="@+id/resultatRecherche"/>
+            android:layout_marginBottom="10dp"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/recherche"
-            android:layout_weight="0.7"
-            android:onClick="onClickRechercheClient"/>
-        <Button
-            android:id="@+id/button_submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:onClick="submitFormAjouterClient"
-            android:text="Ajouter"
-            android:textColor="@color/colorWhite"
-            android:background="@color/colorAjouter"/>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Clients de l'agence"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            <Button
+                android:layout_width="142dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickRechercheClient"
+                android:src="@drawable/recherche" />
+
+            <Button
+                android:id="@+id/button_submit"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorAjouter"
+                android:onClick="submitFormAjouterClient"
+                android:text="Ajouter"
+                android:textColor="@color/colorWhite" />
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

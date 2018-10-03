@@ -44,4 +44,5 @@
     <string name="prompt_marque">Marque du véhicule</string>
     <string name="LouerVehicule">Location  Véhicule</string>
     <string name="RetourVehicule">Restitution Véhicule</string>
+    <string name="ajouterClient">Ajouter client</string>
 </resources>

@@ -14,10 +14,14 @@ public class ResumeLocationActivity extends AppCompatActivity {
     }
 
     public void onClickRechercheClient(View view) {
+        Intent intent = new Intent(this,ListClientActivity.class);
+        startActivity(intent);
     }
 
     public void submitFormAjouterClient(View view) {
-        Intent intent = new Intent(this,DetailsClientActivity.class);
+        Intent intent = new Intent(this,CreerClientActivity.class);
         startActivity(intent);
     }
+
+
 }
