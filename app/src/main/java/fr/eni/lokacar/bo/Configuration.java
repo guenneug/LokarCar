@@ -6,20 +6,15 @@ public class Configuration {
 
         private String immatriculation;
 
-        private TypeVehicule typeVehicule;
+        private int positionSpinner;
 
     public Configuration() {
     }
 
-    public Configuration(boolean triDispo, String immatriculation) {
+    public Configuration(boolean triDispo, String immatriculation, int positionSpinner) {
         this.triDispo = triDispo;
         this.immatriculation = immatriculation;
-    }
-
-    public Configuration(boolean triDispo, String immatriculation, TypeVehicule typeVehicule) {
-        this.triDispo = triDispo;
-        this.immatriculation = immatriculation;
-        this.typeVehicule = typeVehicule;
+        this.positionSpinner = positionSpinner;
     }
 
     public boolean isTriDispo() {
@@ -38,12 +33,12 @@ public class Configuration {
         this.immatriculation = immatriculation;
     }
 
-    public TypeVehicule getTypeVehicule() {
-        return typeVehicule;
+    public int getPositionSpinner() {
+        return positionSpinner;
     }
 
-    public void setTypeVehicule(TypeVehicule typeVehicule) {
-        this.typeVehicule = typeVehicule;
+    public void setPositionSpinner(int positionSpinner) {
+        this.positionSpinner = positionSpinner;
     }
 
     @Override
@@ -51,7 +46,7 @@ public class Configuration {
         return "Configuration{" +
                 "triDispo=" + triDispo +
                 ", immatriculation='" + immatriculation + '\'' +
-                ", typeVehicule=" + typeVehicule +
+                ", positionSpinner=" + positionSpinner +
                 '}';
     }
 }

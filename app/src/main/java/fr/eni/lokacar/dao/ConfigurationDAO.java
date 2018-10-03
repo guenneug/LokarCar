@@ -3,7 +3,6 @@ package fr.eni.lokacar.dao;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import fr.eni.lokacar.ConfigurationActivity;
 import fr.eni.lokacar.bo.Configuration;
 
 public class ConfigurationDAO {
@@ -12,6 +11,7 @@ public class ConfigurationDAO {
     private static final String nomFichier="configuration";
     private static final String triDispo="triDispo";
     private static final String immaParDefaut="immaParDefaut";
+    private static final String typeVehicule="typeVehicule";
 
 
     public void enregistrer(Context context, Configuration config) {
@@ -20,6 +20,7 @@ public class ConfigurationDAO {
         SharedPreferences.Editor editor = sp.edit();
         editor.putBoolean(triDispo, config.isTriDispo());
         editor.putString(immaParDefaut,config.getImmatriculation());
+        editor.putInt(typeVehicule,config.getPositionSpinner());
         editor.commit();
 
 
@@ -31,8 +32,9 @@ public class ConfigurationDAO {
 
         Configuration config = new Configuration();
         SharedPreferences sp = context.getSharedPreferences(nomFichier,Context.MODE_PRIVATE);
-        config.setImmatriculation(sp.getString(immaParDefaut,"VIDE"));
+        config.setImmatriculation(sp.getString(immaParDefaut,"recherche"));
         config.setTriDispo(sp.getBoolean(triDispo,false));
+        config.setPositionSpinner(sp.getInt(typeVehicule,0));
         return config;
 
     }
