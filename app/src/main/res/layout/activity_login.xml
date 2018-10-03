@@ -26,11 +26,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
+                <EditText
                     android:id="@+id/agency"
+                    android:text="@string/nom_agence"
+                    android:hint="@string/prompt_agence"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_password"
                     android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
