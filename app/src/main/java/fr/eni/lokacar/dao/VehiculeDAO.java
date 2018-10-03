@@ -15,6 +15,7 @@ import fr.eni.lokacar.bo.Vehicule;
 @Dao
 public interface VehiculeDAO extends GenericDAO<Vehicule> {
 
-
+    @Query("SELECT * FROM Vehicule")
+    List<Vehicule> selectAll();
 
 }

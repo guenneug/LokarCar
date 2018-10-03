@@ -15,6 +15,7 @@ import java.util.List;
 
 import fr.eni.lokacar.R;
 import fr.eni.lokacar.bo.Vehicule;
+import fr.eni.lokacar.dao.TypeVehiculeDAO;
 import fr.eni.lokacar.utils.ViewUtil;
 
 public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.ViewHolder> {
@@ -47,11 +48,15 @@ public class VehiculeAdapter extends RecyclerView.Adapter<VehiculeAdapter.ViewHo
 
         String colorOccupee = String.valueOf(R.color.colorOccupee);
 
-        holder.tvTitre.setText(this.vehicules.get(position).getModele());
+        holder.tvTitre.setText(this.vehicules.get(position).getMarque()+ " "+this.vehicules.get(position).getModele());
         holder.tvValeurImmatriculation.setText(this.vehicules.get(position).getImmatriculation());
 
-        //TODO: Appel DAO POUR RECUPERER LE NOM DU TYPE ET NON L'ID
-        holder.tvValeurTypeVehicule.setText(String.valueOf(this.vehicules.get(position).getTypeVehicule_id()));
+
+
+        String typeVehicule = TypeVehiculeDAO.getType(this.vehicules.get(position).getTypeVehicule_id());
+
+
+        holder.tvValeurTypeVehicule.setText(typeVehicule);
 
         if (this.vehicules.get(position).isLouee())
         {

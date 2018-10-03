@@ -13,6 +13,7 @@ import java.util.List;
 
 import fr.eni.lokacar.bo.Vehicule;
 import fr.eni.lokacar.dao.Connexion;
+import fr.eni.lokacar.dao.TypeVehiculeDAO;
 import fr.eni.lokacar.dao.VehiculeDAO;
 
 public class CreerVehiculeActivity extends AppCompatActivity {
@@ -68,13 +69,7 @@ public class CreerVehiculeActivity extends AppCompatActivity {
 
     private void createListeTypeVehicule() {
 
-        List typeList = new ArrayList();
-        typeList.add("Beerline");
-        typeList.add("Cabriolet");
-        typeList.add("Break");
-        typeList.add("Monospace");
-        typeList.add("SUV");
-        typeList.add("Coupé");
+        List typeList = TypeVehiculeDAO.getAll();
 
         ArrayAdapter adapter = new ArrayAdapter(
                 this,

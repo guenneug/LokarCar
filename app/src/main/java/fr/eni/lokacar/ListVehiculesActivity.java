@@ -1,6 +1,7 @@
 package fr.eni.lokacar;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -18,9 +19,12 @@ import fr.eni.lokacar.bo.Configuration;
 import fr.eni.lokacar.bo.Vehicule;
 import fr.eni.lokacar.dao.BouchonVehiculeDAO;
 import fr.eni.lokacar.dao.ConfigurationDAO;
+import fr.eni.lokacar.dao.Connexion;
 
 public class ListVehiculesActivity extends AppCompatActivity implements VehiculeAdapter.ClickListenerVehicule {
 
+    private static String KEY_AGENCE = "nomAgence";
+    private static String KEY_NOM_FICHIER = "fichierAgence";
 
     private static final String TAG = "CHRISTOPHE";
     private Toolbar toolbar;
@@ -34,6 +38,14 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
 
 
         this.toolbar=this.findViewById(R.id.tb_ListVehicules);
+        SharedPreferences sp = this.getSharedPreferences(KEY_NOM_FICHIER,MODE_PRIVATE);
+
+        String nomAgence = sp.getString(KEY_AGENCE,"Nom agence");
+
+
+
+       this.toolbar.setTitle(nomAgence);
+
         this.setSupportActionBar(toolbar);
 
 
@@ -52,7 +64,9 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
 
         Configuration config = new ConfigurationDAO().lire(this);
 
-        List<Vehicule> vehicules = BouchonVehiculeDAO.selectAll(config.isTriDispo());
+        //List<Vehicule> vehicules = BouchonVehiculeDAO.selectAll(config.isTriDispo());
+
+        List<Vehicule> vehicules = Connexion.getConnexion(this).vehiculeDAO().selectAll();
 
         Log.i(TAG,"DISPO "+config.isTriDispo());
 
