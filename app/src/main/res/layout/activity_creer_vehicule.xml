@@ -128,7 +128,7 @@
                     android:textSize="18dp" />
 
                 <Spinner
-                    android:id="@+id/type_vehicule"
+                    android:id="@+id/typeVehicule"
                     android:layout_width="149dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.5" />
@@ -159,7 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:onClick="submitForm"
+                android:onClick="submitFormCreerVehicule"
                 android:text="Ajouter"
                 android:textColor="@color/colorWhite"
                 android:background="@color/colorAjouter"/>

@@ -21,6 +21,7 @@ import java.util.GregorianCalendar;
 
 import fr.eni.lokacar.bo.Client;
 import fr.eni.lokacar.dao.ClientDAO;
+import fr.eni.lokacar.dao.Connexion;
 
 
 public class DetailsClientActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
@@ -44,6 +45,8 @@ public class DetailsClientActivity extends AppCompatActivity implements DatePick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_client);
+
+
         initComponent();
 
 
@@ -66,10 +69,11 @@ public class DetailsClientActivity extends AppCompatActivity implements DatePick
 
 
     public void submitForm(View view) {
-
+        //pas de cela avec Room
         //ClientDAO clientDAO = new ClientDAO(this);
 
         Client client = new Client();
+
         client.setNom(nom.getText().toString());
         client.setPrenom(prenom.getText().toString());
         client.setAdresse(adresse.getText().toString());
@@ -84,8 +88,9 @@ public class DetailsClientActivity extends AppCompatActivity implements DatePick
             e.printStackTrace();
         }
 
-        //long id = clientDAO.insert(client);
-        //client.setId_client((int)id);
+        long id = Connexion.getConnexion(this).clientDAO().insert(client);
+        client.setId_client((int)id);
+
 
         Intent intent = new Intent(this,ResumeLocationActivity.class);
         startActivity(intent);
