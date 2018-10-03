@@ -24,9 +24,18 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="recherche"
+            android:src="@drawable/ic_menu_share"
             android:layout_weight="0.7"
             android:onClick="onClickRechercheClient"/>
+        <Button
+            android:id="@+id/button_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:onClick="submitFormAjouterClient"
+            android:text="Ajouter"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorAjouter"/>
 
 
     </LinearLayout>
