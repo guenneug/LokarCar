@@ -15,10 +15,9 @@ import java.util.List;
 
 import fr.eni.lokacar.adapters.VehiculeAdapter;
 import fr.eni.lokacar.bo.Configuration;
-import fr.eni.lokacar.bo.TypeVehicule;
 import fr.eni.lokacar.bo.Vehicule;
+import fr.eni.lokacar.dao.BouchonVehiculeDAO;
 import fr.eni.lokacar.dao.ConfigurationDAO;
-import fr.eni.lokacar.dao.VehiculeBouchonDAO;
 
 public class ListVehiculesActivity extends AppCompatActivity implements VehiculeAdapter.ClickListenerVehicule {
 
@@ -53,7 +52,7 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
 
         Configuration config = new ConfigurationDAO().lire(this);
 
-        List<Vehicule> vehicules = VehiculeBouchonDAO.selectAll(config.isTriDispo());
+        List<Vehicule> vehicules = BouchonVehiculeDAO.selectAll(config.isTriDispo());
 
         Log.i(TAG,"DISPO "+config.isTriDispo());
 
