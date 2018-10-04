@@ -1,12 +1,21 @@
 package fr.eni.lokacar;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.File;
+
+import fr.eni.lokacar.bo.Photo;
 import fr.eni.lokacar.bo.Vehicule;
+import fr.eni.lokacar.dao.Connexion;
 import fr.eni.lokacar.dao.TypeVehiculeDAO;
 
 public class DetailVehiculeActivity extends AppCompatActivity {
@@ -21,6 +30,8 @@ public class DetailVehiculeActivity extends AppCompatActivity {
 
     private TextView tv_prixJour;
 
+    private ImageView iv_photo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +40,20 @@ public class DetailVehiculeActivity extends AppCompatActivity {
 
         Vehicule vehicule = getIntent().getParcelableExtra("vehicule");
         initComponent();
+
+        Photo photo = Connexion.getConnexion(this).photoDAO().findDescriptiveByVhId(vehicule.getId_vehicule());
+
+        iv_photo = findViewById(R.id.imgVehicule);
+        File imgFile = new  File(photo.getUri());
+        if(imgFile.exists()){
+            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            iv_photo.setImageBitmap(myBitmap);
+        }else
+        {
+            Toast.makeText(this, "Photo non trouvée", Toast.LENGTH_SHORT).show();
+            Log.i("LOKAKAR DETAIL VH" , "Photo de description non trouvée");
+        }
+
 
         String typeVehicule = TypeVehiculeDAO.getType(vehicule.getId_vehicule());
 

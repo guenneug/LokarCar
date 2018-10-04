@@ -13,7 +13,7 @@ import fr.eni.lokacar.dao.DateTypeConverter;
 public class Photo {
 
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id_photo;
 
     private String uri;

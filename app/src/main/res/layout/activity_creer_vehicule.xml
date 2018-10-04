@@ -42,6 +42,12 @@
                 android:textColor="@color/colorWhite"
                 android:background="@color/colorAjouter"/>
 
+            <ImageView
+                android:id="@+id/ivApercu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"/>
+
 
 
             <android.support.design.widget.TextInputLayout
