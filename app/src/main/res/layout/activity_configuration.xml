@@ -8,14 +8,7 @@
     android:layout_marginLeft="15sp"
     android:layout_marginRight="15sp">
 
-    <Switch
-        android:id="@+id/swDispo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:text="@string/afficherVehiculesDispo"
-        android:textSize="15sp"
-        android:layout_marginTop="50sp"/>
+
 
     <LinearLayout
         android:id="@+id/layoutRechercheImmatriculation"
@@ -23,7 +16,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="50sp"
-        android:layout_below="@+id/swDispo"
+
         >
 
         <android.support.design.widget.TextInputLayout
@@ -53,6 +46,17 @@
     </LinearLayout>
 
 
+    <Switch
+        android:id="@+id/swDispo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="@string/afficherVehiculesDispo"
+        android:textSize="15sp"
+        android:layout_marginTop="50sp"
+        android:layout_below="@+id/layoutRechercheImmatriculation"/>
+
+
     <TextView
         android:id="@+id/tv_typeVehicule"
         android:layout_width="match_parent"
@@ -60,7 +64,7 @@
         android:text="Recherche par type de véhicules"
         android:layout_marginTop="50sp"
         android:textSize="15sp"
-        android:layout_below="@+id/layoutRechercheImmatriculation"/>
+        android:layout_below="@+id/swDispo"/>
 
     <Spinner
         android:id="@+id/spinnerVehicules"

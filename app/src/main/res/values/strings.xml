@@ -38,11 +38,12 @@
     <string name="afficherVehiculesDispo">Afficher seulement les véhicules disponibles</string>
     <string name="LouerVéhicule">Louer Véhicule</string>
     <string name="prompt_nbrePlaces">Nombre de places</string>
-    <string name="prompt_immatriculation">PLaque d\'immatriculation</string>
+    <string name="prompt_immatriculation">Plaque d\'immatriculation</string>
     <string name="prompt_prix">Tarif location journée</string>
     <string name="prompt_modele">Modèle du véhicule</string>
     <string name="prompt_marque">Marque du véhicule</string>
     <string name="LouerVehicule">Location  Véhicule</string>
     <string name="RetourVehicule">Restitution Véhicule</string>
     <string name="ajouterClient">Ajouter client</string>
+
 </resources>
