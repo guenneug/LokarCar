@@ -27,7 +27,7 @@ import fr.eni.lokacar.dao.Connexion;
 
 public class CreerClientActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
-    private static final String TAG = "CHRISTOPHE";
+    private static final String TAG = "CREERCLIENT";
 
     private Calendar calendar;
 
@@ -42,8 +42,7 @@ public class CreerClientActivity extends AppCompatActivity implements DatePicker
     private Button picDateNaissance;
     private TextView dateNaissance;
 
-    private Date birthDate;
-
+    // Pas propre
     private Vehicule vehicule;
 
 
@@ -52,13 +51,10 @@ public class CreerClientActivity extends AppCompatActivity implements DatePicker
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_creer_client);
 
-
         initComponent();
 
+        // Pas propre
         vehicule = getIntent().getParcelableExtra("vehicule");
-
-
-
 
     }
 
@@ -93,18 +89,17 @@ public class CreerClientActivity extends AppCompatActivity implements DatePicker
 
         Log.i(TAG,"Date naissance : "+dateNaissance.getText().toString());
 
-        this.birthDate = new Date();
 
-        client.setDateNaissance(birthDate);
 
-      /*  try {
-            client.setDateNaissance(new SimpleDateFormat("dd/MM/yyyy").parse(dateNaissance.getText().toString()));
+
+       try {
+            client.setDateNaissance(new SimpleDateFormat("MMM dd, yyyy").parse(dateNaissance.getText().toString()));
 
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-*/
+
         Log.i(TAG,"Client : " +client.toString());
 
        long id = Connexion.getConnexion(this).clientDAO().insert(client);

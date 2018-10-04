@@ -163,20 +163,19 @@ public class ResumeLocationActivity extends AppCompatActivity  implements DatePi
     }
 
     public static class DatePickerStartFragment extends DialogFragment{
-
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final Calendar c = Calendar.getInstance();
             int year = c.get(Calendar.YEAR);
             int month = c.get(Calendar.MONTH);
             int day = c.get(Calendar.DAY_OF_MONTH);
-
-            return new DatePickerDialog(getActivity(),
+            DatePickerDialog d = new DatePickerDialog(getActivity(),
                     (DatePickerDialog.OnDateSetListener)
                             getActivity(), year, month, day);
+            d.getDatePicker().setTag("start");
+            return d;
         }
     }
-
     public static class DatePickerEndFragment extends DialogFragment{
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -184,34 +183,30 @@ public class ResumeLocationActivity extends AppCompatActivity  implements DatePi
             int year = c.get(Calendar.YEAR);
             int month = c.get(Calendar.MONTH);
             int day = c.get(Calendar.DAY_OF_MONTH);
-
-            return new DatePickerDialog(getActivity(),
+            DatePickerDialog d = new DatePickerDialog(getActivity(),
                     (DatePickerDialog.OnDateSetListener)
                             getActivity(), year, month, day);
+            d.getDatePicker().setTag("end");
+            return d;
         }
     }
-
-
-
     @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        Calendar cal = new GregorianCalendar(year, month, day);
-        setDateStart(cal);
-        setDateEnd(cal);
+        if(String.valueOf(view.getTag()).equals("start")) {
+            Calendar calStart = new GregorianCalendar(year, month, day);
+            setDateStart(calStart);
+        }
+        else {
+            Calendar calEnd = new GregorianCalendar(year, month, day);
+            setDateEnd(calEnd);
+        }
     }
-
     private void setDateStart(final Calendar calendar) {
         DateFormat dateFormatStart = DateFormat.getDateInstance(DateFormat.MEDIUM);
         ((TextView) findViewById(R.id.dateStart)).setText(dateFormatStart.format(calendar.getTime()));
-
     }
-
     private void setDateEnd(final Calendar calendar) {
-
         DateFormat dateFormatEnd = DateFormat.getDateInstance(DateFormat.MEDIUM);
         ((TextView) findViewById(R.id.dateEnd)).setText(dateFormatEnd.format(calendar.getTime()));
-
     }
-
-
 }
