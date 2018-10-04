@@ -61,7 +61,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="fr.eni.lokacar.ListVehiculesActivity" />
         </activity>
-        <activity android:name=".DetailsClientActivity">
+        <activity android:name=".CreerClientActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="fr.eni.lokacar.ResumeLocationActivity" />
@@ -71,9 +71,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="fr.eni.lokacar.DetailVehiculeActivity" />
         </activity>
-        <activity android:name=".TestPhotoActivity">
 
-        </activity>
     </application>
 
 </manifest>
