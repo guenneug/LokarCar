@@ -35,7 +35,7 @@ public class Vehicule implements Parcelable{
     }
 
     protected Vehicule(Parcel in) {
-        id_vehicule = in.readInt();
+        id_vehicule = in.readLong();
         prix = in.readFloat();
         immatriculation = in.readString();
         louee = in.readByte() != 0;
@@ -61,7 +61,7 @@ public class Vehicule implements Parcelable{
         return id_vehicule;
     }
 
-    public void setId_vehicule(int id_vehicule) {
+    public void setId_vehicule(long id_vehicule) {
         this.id_vehicule = id_vehicule;
     }
 

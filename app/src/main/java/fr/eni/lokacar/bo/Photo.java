@@ -14,31 +14,31 @@ public class Photo {
 
 
     @PrimaryKey(autoGenerate = true)
-    private int id_photo;
+    private long id_photo;
 
     private String uri;
     @TypeConverters({DateTypeConverter.class})
     private Date datePriseDeVue;
     private Boolean descriptive;
-    private int vehicule_id;
+    private long vehicule_id;
 
 
     public Photo() {
 
     }
 
-    public Photo(String uri, Date datePriseDeVue, Boolean descriptive, int vehicule_id) {
+    public Photo(String uri, Date datePriseDeVue, Boolean descriptive, long vehicule_id) {
         this.uri = uri;
         this.datePriseDeVue = datePriseDeVue;
         this.descriptive = descriptive;
         this.vehicule_id = vehicule_id;
     }
 
-    public int getId_photo() {
+    public long getId_photo() {
         return id_photo;
     }
 
-    public void setId_photo(int id_photo) {
+    public void setId_photo(long id_photo) {
         this.id_photo = id_photo;
     }
 
@@ -66,11 +66,11 @@ public class Photo {
         this.descriptive = descriptive;
     }
 
-    public int getVehicule_id() {
+    public long getVehicule_id() {
         return vehicule_id;
     }
 
-    public void setVehicule_id(int vehicule_id) {
+    public void setVehicule_id(long vehicule_id) {
         this.vehicule_id = vehicule_id;
     }
 }

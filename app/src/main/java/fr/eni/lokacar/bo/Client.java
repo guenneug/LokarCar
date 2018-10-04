@@ -15,7 +15,7 @@ import fr.eni.lokacar.dao.DateTypeConverter;
 public class Client implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
-    private int id_client;
+    private long id_client;
     @ColumnInfo(name="NOM")
     private String nom;
     @ColumnInfo(name="PRENOM")
@@ -82,11 +82,11 @@ public class Client implements Parcelable {
         }
     };
 
-    public int getId_client() {
+    public long getId_client() {
         return id_client;
     }
 
-    public void setId_client(int id_client) {
+    public void setId_client(long id_client) {
         this.id_client = id_client;
     }
 
@@ -185,7 +185,7 @@ public class Client implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(id_client);
+        parcel.writeLong(id_client);
         parcel.writeString(nom);
         parcel.writeString(prenom);
         parcel.writeString(adresse);
