@@ -9,7 +9,7 @@ import android.os.Parcelable;
 public class Vehicule implements Parcelable{
 
     @PrimaryKey(autoGenerate = true)
-    private int id_vehicule;
+    private long id_vehicule;
 
     private float prix;
     private String immatriculation;
@@ -57,7 +57,7 @@ public class Vehicule implements Parcelable{
         }
     };
 
-    public int getId_vehicule() {
+    public long getId_vehicule() {
         return id_vehicule;
     }
 
@@ -142,7 +142,7 @@ public class Vehicule implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(id_vehicule);
+        parcel.writeLong(id_vehicule);
         parcel.writeFloat(prix);
         parcel.writeString(immatriculation);
         parcel.writeByte((byte) (louee ? 1 : 0));

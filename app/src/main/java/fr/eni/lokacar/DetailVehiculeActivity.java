@@ -58,7 +58,7 @@ public class DetailVehiculeActivity extends AppCompatActivity {
         }
 
 
-        String typeVehicule = TypeVehiculeDAO.getType(vehicule.getId_vehicule());
+        String typeVehicule = TypeVehiculeDAO.getType(vehicule.getTypeVehicule_id());
 
         tv_type.setText(typeVehicule);
         tv_immatriculation.setText(vehicule.getImmatriculation());

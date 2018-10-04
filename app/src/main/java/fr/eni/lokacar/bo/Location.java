@@ -18,7 +18,7 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
 public class Location {
 
     @PrimaryKey
-    private int locationID;
+    private long locationID;
 
     @TypeConverters({DateTypeConverter.class})
     private Date dateDepart;
@@ -27,8 +27,8 @@ public class Location {
     @TypeConverters({DateTypeConverter.class})
     private Date dateRetourReel;
     private Float prix;
-    private int client_id;
-    private int vehicule_id;
+    private long client_id;
+    private long vehicule_id;
 
     public Location(Date dateDepart, Date dateRetourPrevu, Float prix, int client_id, int vehicule_id) {
         this.dateDepart = dateDepart;
@@ -41,7 +41,7 @@ public class Location {
     public Location() {
     }
 
-    public int getLocationID() {
+    public long getLocationID() {
         return locationID;
     }
 
@@ -81,19 +81,19 @@ public class Location {
         this.prix = prix;
     }
 
-    public int getClient_id() {
+    public long getClient_id() {
         return client_id;
     }
 
-    public void setClient_id(int client_id) {
+    public void setClient_id(long client_id) {
         this.client_id = client_id;
     }
 
-    public int getVehicule_id() {
+    public long getVehicule_id() {
         return vehicule_id;
     }
 
-    public void setVehicule_id(int vehicule_id) {
+    public void setVehicule_id(long vehicule_id) {
         this.vehicule_id = vehicule_id;
     }
 
