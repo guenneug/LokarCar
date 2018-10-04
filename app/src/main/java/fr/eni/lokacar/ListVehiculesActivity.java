@@ -39,10 +39,7 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
 
         this.toolbar=this.findViewById(R.id.tb_ListVehicules);
         SharedPreferences sp = this.getSharedPreferences(KEY_NOM_FICHIER,MODE_PRIVATE);
-
         String nomAgence = sp.getString(KEY_AGENCE,"Nom agence");
-
-
 
        this.toolbar.setTitle(nomAgence);
 
