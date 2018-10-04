@@ -82,4 +82,6 @@ public class CreerVehiculeActivity extends AppCompatActivity {
     }
 
 
+    public void prendrePhoto(View view) {
+    }
 }

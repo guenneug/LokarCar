@@ -61,17 +61,26 @@ public class ListVehiculesActivity extends AppCompatActivity implements Vehicule
 
         Configuration config = new ConfigurationDAO().lire(this);
 
+
+        Log.i(TAG,"Tri : "+config.isTriDispo());
+        Log.i(TAG, "Catégorie : "+config.getPositionSpinner());
+
         //List<Vehicule> vehicules = BouchonVehiculeDAO.selectAll(config.isTriDispo());
 
-        List<Vehicule> vehicules = Connexion.getConnexion(this).vehiculeDAO().selectAll();
+        List<Vehicule> vehicules = new ArrayList<>();
 
+        if (config.getPositionSpinner() == 0)
+        {
+            vehicules = Connexion.getConnexion(this).vehiculeDAO().selectAll(config.isTriDispo());
 
+        } else
+        {
+           vehicules = Connexion.getConnexion(this).vehiculeDAO().selectAll(config.isTriDispo(),config.getPositionSpinner());
+        }
 
         this.vehiculeAdapter = new VehiculeAdapter(this);
         this.vehiculeAdapter.addVehicules(vehicules);
         this.rvVehicules.setAdapter(vehiculeAdapter);
-
-
 
     }
 

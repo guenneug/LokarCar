@@ -9,9 +9,12 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import fr.eni.lokacar.bo.Configuration;
+import fr.eni.lokacar.bo.Vehicule;
 import fr.eni.lokacar.dao.ConfigurationDAO;
+import fr.eni.lokacar.dao.Connexion;
 
 public class ConfigurationActivity extends AppCompatActivity  {
 
@@ -81,7 +84,7 @@ public class ConfigurationActivity extends AppCompatActivity  {
     {
      String [] types = new String[7];
 
-        types[0] = "";
+        types[0] = "Toutes les catégories";
         types[1] = "Berline";
         types[2] = "Break";
         types[3] = "Cabriolet";
@@ -98,9 +101,22 @@ public class ConfigurationActivity extends AppCompatActivity  {
 
         String immatriculation = this.etImmatriculation.getText().toString();
 
-        Log.i("CHRISTOPHE",immatriculation);
+        Vehicule v = null;
 
-        Intent intent = new Intent(this,DetailVehiculeActivity.class);
+        v= Connexion.getConnexion(this).vehiculeDAO().selectByImma(immatriculation);
+
+        if (v== null)
+        {
+            Toast.makeText(this, "Véhicule introuvable", Toast.LENGTH_SHORT).show();
+        } else
+        {
+            Intent intent = new Intent(this,DetailVehiculeActivity.class);
+            intent.putExtra("vehicule",v);
+            startActivity(intent);
+
+        }
+
+
 
     }
 

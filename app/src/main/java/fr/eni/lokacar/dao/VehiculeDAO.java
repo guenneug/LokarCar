@@ -15,7 +15,12 @@ import fr.eni.lokacar.bo.Vehicule;
 @Dao
 public interface VehiculeDAO extends GenericDAO<Vehicule> {
 
-    @Query("SELECT * FROM Vehicule")
-    List<Vehicule> selectAll();
+    @Query("SELECT * FROM Vehicule WHERE louee = :IsDispo AND typeVehicule_id = :typeId")
+    List<Vehicule> selectAll(boolean IsDispo, int typeId);
 
+    @Query("SELECT * FROM Vehicule WHERE louee = :IsDispo")
+    List<Vehicule> selectAll(boolean IsDispo);
+
+    @Query("SELECT * FROM Vehicule WHERE immatriculation = :imma")
+    Vehicule selectByImma(String imma);
 }

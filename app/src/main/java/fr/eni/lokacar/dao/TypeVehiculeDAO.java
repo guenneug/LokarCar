@@ -9,16 +9,18 @@ public class TypeVehiculeDAO {
         switch (idType) {
 
             case 0:
-                return "Berline";
+                return "";
             case 1:
-                return "Break";
+                return "Berline";
             case 2:
-                return "Cabriolet";
+                return "Break";
             case 3:
-                return "Coupé";
+                return "Cabriolet";
             case 4:
-                return "Monospace";
+                return "Coupé";
             case 5:
+                return "Monospace";
+            case 6:
                 return "SUV";
             default:
                 return "Type inconnu";
@@ -31,6 +33,7 @@ public class TypeVehiculeDAO {
         {
             List <String> listeTypes = new ArrayList<>();
 
+            listeTypes.add("");
             listeTypes.add("Berline");
             listeTypes.add("Break");
             listeTypes.add("Cabriolet");

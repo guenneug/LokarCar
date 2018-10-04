@@ -32,6 +32,17 @@
                 android:text="Ajouter un véhicule"
                 android:textSize="25dp" />
 
+            <Button
+                android:id="@+id/btn_prendrePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:onClick="prendrePhoto"
+                android:text="Prendre Photo"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAjouter"/>
+
+
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
