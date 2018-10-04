@@ -77,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
         if (spInter.contains(KEY_AGENCE)) {
             Toast.makeText(this, "Agence trouvee", Toast.LENGTH_SHORT).show();
             mAgencyView.setText(spInter.getString(KEY_AGENCE, null));
+            mAgencyView.setEnabled(false);
             findViewById(R.id.tilConfirm).setVisibility(View.INVISIBLE);
             mbtnLogin.setText("Se Connecter");
         }else {
