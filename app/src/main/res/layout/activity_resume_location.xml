@@ -1,57 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:id="@+id/view"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ResumeLocationActivity">
 
-    <LinearLayout
-        android:layout_width="386dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <ScrollView
+        android:id="@+id/resume_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/details_Location_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="10dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Location "
+                android:textSize="25dp" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorVehiculeLocation">
+                >
+
+                <TextView
+                    android:id="@+id/titleClient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Identification client"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTitreLocation"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/btnRechercherClient"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClickRechercheClient"
+                    android:text="Rechercher" />
+
+                <Button
+                    android:id="@+id/btnAjouterClient"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorAjouter"
+                    android:onClick="submitFormAjouterClient"
+                    android:text="Ajouter"
+                    android:textColor="@color/colorWhite" />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nom du client:"
+                    android:textSize="18dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:id="@+id/nomClient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"/>
+                    <TextView
+                        android:id="@+id/prenomClient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"/>
+
+                </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="86dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorVehiculeLocation"
+                >
+
+                <TextView
+                    android:id="@+id/tvIdentityCar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Véhicule loué"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTitreLocation"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/modeleLoue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:id="@+id/immatLoue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5" />
+
+
+                </LinearLayout>
+
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorVehiculeLocation">
+                >
+
+                <TextView
+                    android:id="@+id/tvInfoLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Informations locations"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTitreLocation" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/picDateStart"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/colorBtn"
+                        android:onClick="datePickerStart"
+                        android:text="Date Début"
+                        android:textColor="@color/colorWhite"
+                        android:layout_marginLeft="10dp"/>
+                        <Button
+                            android:id="@+id/picDateEnd"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/colorWhite"
+                            android:onClick="datePickerFin"
+                            android:text="Date Fin"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorBtn"
+                            android:layout_below="@id/picDateStart"/>
+                    </LinearLayout>
+
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/dateStart"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:layout_below="@+id/picDateStart"
+                            android:textSize="18dp"/>
+                         <TextView
+                            android:id="@+id/dateEnd"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                             android:layout_weight="0.5"
+                            android:layout_below="@id/dateStart"
+                            android:textSize="18dp"/>
+                    </LinearLayout>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvCalculPrix"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="Coût total location"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/btnValiderLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:text="Clients de l'agence"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-            <Button
-                android:layout_width="142dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onClickRechercheClient"
-                android:src="@drawable/recherche" />
-
-            <Button
-                android:id="@+id/button_submit"
-                android:layout_width="144dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/colorAjouter"
-                android:onClick="submitFormAjouterClient"
-                android:text="Ajouter"
+                android:background="@color/colorRestitution"
+                android:onClick="onClickValiderLocation"
+                android:text="Valider location"
+                android:layout_marginTop="15dp"
                 android:textColor="@color/colorWhite" />
-            </LinearLayout>
+
+
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

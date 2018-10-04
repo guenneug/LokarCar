@@ -190,12 +190,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/dateNaissance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textSize="18dp"/>
         <Button
             android:id="@+id/picDateNaissance"
             android:layout_width="match_parent"
@@ -203,6 +197,12 @@
             android:text="Sélectionner une date"
             android:onClick="datePicker"
             android:layout_below="@+id/dateNaissance"/>
+        <TextView
+            android:id="@+id/dateNaissance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="18dp"/>
 
     </android.support.design.widget.TextInputLayout>
 
