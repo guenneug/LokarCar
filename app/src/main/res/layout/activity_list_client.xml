@@ -46,7 +46,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="put icone here"
+            android:text="Recherche"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
             android:layout_weight="0.7"
             android:onClick="onClickSearchClient"/>
   </LinearLayout>
