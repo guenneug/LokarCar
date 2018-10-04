@@ -46,6 +46,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="fr.eni.lokacar.LoginActivity" />
         </activity>
+        <activity
+            android:name=".ListClientActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fr.eni.lokacar.ResumeLocationActivity" />
+        </activity>
+
         <activity android:name=".DetailVehiculeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

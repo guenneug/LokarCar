@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -20,10 +21,12 @@ import java.util.GregorianCalendar;
 
 import fr.eni.lokacar.bo.Client;
 import fr.eni.lokacar.bo.Location;
+import fr.eni.lokacar.bo.Vehicule;
 import fr.eni.lokacar.dao.Connexion;
 
 public class ResumeLocationActivity extends AppCompatActivity  implements DatePickerDialog.OnDateSetListener{
 
+    private static final String TAG ="RESUME" ;
     private Calendar calendar;
 
     private TextView calculPrix ;
@@ -37,17 +40,51 @@ public class ResumeLocationActivity extends AppCompatActivity  implements DatePi
     private Button picDateEnd;
     private Button picDateStart;
 
+    private Vehicule vehicule;
+    private Client client;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resume_location);
+
+        Log.i(TAG,"RESUME LOCATION");
+
         initComponent();
+        this.vehicule = getVehicule();
+        Log.i(TAG,"Vehicule : "+vehicule);
+
+        this.client = getClient();
+        Log.i(TAG,"Client : "+client);
+
+        feedComponents();
+    }
+
+    private void feedComponents() {
+
+        if (vehicule != null)
+        {
+            this.immatLoue.setText(vehicule.getImmatriculation());
+            this.modeleLoue.setText(vehicule.getModele());
+        }
+
+        if (client != null) {
+            this.nom.setText(client.getNom());
+            this.prenom.setText(client.getPrenom());
+        }
+
+
+    }
+
+    private Client getClient() {
+        client = getIntent().getParcelableExtra("client");
+        return client;
     }
 
 
     private void initComponent() {
-        nom = findViewById(R.id.nom);
-        prenom = findViewById(R.id.prenom);
+        nom = findViewById(R.id.nomClient);
+        prenom = findViewById(R.id.prenomClient);
         dateStart = findViewById(R.id.dateStart);
         dateEnd = findViewById(R.id.dateEnd);
         calculPrix = findViewById(R.id.tvCalculPrix);
@@ -57,15 +94,23 @@ public class ResumeLocationActivity extends AppCompatActivity  implements DatePi
         picDateStart = findViewById(R.id.picDateStart);
     }
 
+    public Vehicule getVehicule()
+    {
+        vehicule = getIntent().getParcelableExtra("vehicule");
+        return vehicule;
+    }
+
 
 
     public void onClickRechercheClient(View view) {
         Intent intent = new Intent(this,ListClientActivity.class);
+        intent.putExtra("vehicule",vehicule);
         startActivity(intent);
     }
 
     public void submitFormAjouterClient(View view) {
         Intent intent = new Intent(this,CreerClientActivity.class);
+        intent.putExtra("vehicule",vehicule);
         startActivity(intent);
     }
 

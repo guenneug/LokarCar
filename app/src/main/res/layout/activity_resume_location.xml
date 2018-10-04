@@ -62,8 +62,10 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@color/colorWhite"
                     android:onClick="onClickRechercheClient"
-                    android:text="Rechercher" />
+                    android:text="Rechercher"
+                    android:textColor="@color/colorAjouter"/>
 
                 <Button
                     android:id="@+id/btnAjouterClient"
@@ -76,28 +78,30 @@
                     android:textColor="@color/colorWhite" />
 
                 </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nom du client:"
-                    android:textSize="18dp"/>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
                     >
 
                     <TextView
                         android:id="@+id/nomClient"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"/>
+                        android:layout_weight="0.5"
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/prenomClient"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"/>
+                        android:layout_weight="0.5"
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
             </android.support.design.widget.TextInputLayout>
@@ -123,19 +127,25 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp">
 
                     <TextView
                         android:id="@+id/modeleLoue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5" />
+                        android:layout_weight="0.5"
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/immatLoue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5" />
+                        android:layout_weight="0.5"
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
 
 
                 </LinearLayout>

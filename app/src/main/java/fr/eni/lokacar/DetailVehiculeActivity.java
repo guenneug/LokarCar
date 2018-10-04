@@ -32,13 +32,16 @@ public class DetailVehiculeActivity extends AppCompatActivity {
 
     private ImageView iv_photo;
 
+    private Vehicule vehicule;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_vehicule);
 
-        Vehicule vehicule = getIntent().getParcelableExtra("vehicule");
+        vehicule = getIntent().getParcelableExtra("vehicule");
         initComponent();
 
         Photo photo = Connexion.getConnexion(this).photoDAO().findDescriptiveByVhId(vehicule.getId_vehicule());
@@ -67,6 +70,8 @@ public class DetailVehiculeActivity extends AppCompatActivity {
 
     }
 
+
+
     private void initComponent() {
 
         this.tv_marque=findViewById(R.id.tvD_marque);
@@ -79,6 +84,10 @@ public class DetailVehiculeActivity extends AppCompatActivity {
 
     public void createLocation(View view) {
         Intent intent = new Intent(this,ResumeLocationActivity.class);
+
+
+
+        intent.putExtra("vehicule", this.vehicule);
         startActivity(intent);
     }
 

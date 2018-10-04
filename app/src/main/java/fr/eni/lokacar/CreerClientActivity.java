@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -16,14 +17,17 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import fr.eni.lokacar.bo.Client;
+import fr.eni.lokacar.bo.Vehicule;
 import fr.eni.lokacar.dao.Connexion;
 
 
 public class CreerClientActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
+    private static final String TAG = "CHRISTOPHE";
 
     private Calendar calendar;
 
@@ -38,6 +42,10 @@ public class CreerClientActivity extends AppCompatActivity implements DatePicker
     private Button picDateNaissance;
     private TextView dateNaissance;
 
+    private Date birthDate;
+
+    private Vehicule vehicule;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,8 @@ public class CreerClientActivity extends AppCompatActivity implements DatePicker
 
 
         initComponent();
+
+        vehicule = getIntent().getParcelableExtra("vehicule");
 
 
 
@@ -67,8 +77,8 @@ public class CreerClientActivity extends AppCompatActivity implements DatePicker
 
 
     public void submitForm(View view) {
-        //pas de cela avec Room
-        //ClientDAO clientDAO = new ClientDAO(this);
+
+        Log.i(TAG,"SubmitForm : " );
 
         Client client = new Client();
 
@@ -80,18 +90,35 @@ public class CreerClientActivity extends AppCompatActivity implements DatePicker
         client.setTel(tel.getText().toString());
         client.setEmail(email.getText().toString());
         client.setNumeroPermis(numeroPermis.getText().toString());
-        try {
+
+        Log.i(TAG,"Date naissance : "+dateNaissance.getText().toString());
+
+        this.birthDate = new Date();
+
+        client.setDateNaissance(birthDate);
+
+      /*  try {
             client.setDateNaissance(new SimpleDateFormat("dd/MM/yyyy").parse(dateNaissance.getText().toString()));
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        long id = Connexion.getConnexion(this).clientDAO().insert(client);
-        client.setId_client((int)id);
+*/
+        Log.i(TAG,"Client : " +client.toString());
+
+       long id = Connexion.getConnexion(this).clientDAO().insert(client);
+       client.setId_client((int)id);
 
 
-        Intent intent = new Intent(this,ResumeLocationActivity.class);
-        startActivity(intent);
+
+       Intent intent = new Intent(this,ResumeLocationActivity.class);
+
+
+
+       intent.putExtra("client",client);
+       intent.putExtra("vehicule",vehicule);
+       startActivity(intent);
     }
 
 

@@ -31,12 +31,16 @@ public class ListClientActivity extends AppCompatActivity implements ClientAdapt
     private EditText etSearchClient;
     private ClientAdapter clientAdapter;
 
+    private Vehicule vehicule;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_client);
 
         initComponent();
+
+        vehicule = getIntent().getParcelableExtra("vehicule");
 
     }
 
@@ -94,6 +98,7 @@ public class ListClientActivity extends AppCompatActivity implements ClientAdapt
         {
             case R.id.itemAddClient:
                 Intent intentAdd = new Intent(this, CreerClientActivity.class);
+                intentAdd.putExtra("vehicule",vehicule);
                 startActivity(intentAdd);
                 return true;
 
@@ -124,6 +129,7 @@ public class ListClientActivity extends AppCompatActivity implements ClientAdapt
 
         Intent intent = new Intent(this, ResumeLocationActivity.class);
         intent.putExtra("client", client);
+        intent.putExtra("vehicule",vehicule);
         startActivity(intent);
     }
 }
